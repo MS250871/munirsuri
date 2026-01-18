@@ -5,16 +5,16 @@ import Pathchecker from '@/components/Pathchecker';
 
 export default function SiteLayout({ children }) {
   return (
-    <>
+    <div className="pt-[100px]">
       <Header />
 
       {children}
 
       <Pathchecker excludedPath="/contact">
-        <ContactForm />
+        <ContactForm showInfo />
       </Pathchecker>
 
       <Footer />
-    </>
+    </div>
   );
 }

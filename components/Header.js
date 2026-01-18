@@ -1,45 +1,61 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { FaBarsStaggered } from 'react-icons/fa6';
-import { FaTimes } from 'react-icons/fa';
-import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import Logo from './Logo';
 import NavlinksDesktop from './NavlinksDesktop';
-import NavlinksMobile from './NavlinksMobile';
+import HeaderMobileClient from './HeaderClient';
 
-const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const pathname = usePathname();
-
-  const handleOpen = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
+export default function Header() {
   return (
-    <header className="relative flex items-center justify-center ">
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="/svgs/HeroBgSm.svg"
-          alt="Hero Background"
-          className="md:hidden w-full object-cover"
-        />
-        <img
-          src="/svgs/HeroBgMd.svg"
-          alt="Hero Background"
-          className="hidden md:block lg:hidden w-full object-cover"
-        />
-        <img
-          src="/svgs/HeroBgLg.svg"
-          alt="Hero Background"
-          className="hidden lg:block md:hidden w-full object-cover"
-        />
+    <>
+      {/* BACKGROUND LAYER (NOT FIXED) */}
+      <div className="absolute top-0 left-0 w-full -z-10">
+        {/* Mobile */}
+        <div className="md:hidden w-full">
+          <Image
+            src="/svgs/HeroBgSm.svg"
+            alt="Hero Background"
+            width={640}
+            height={800}
+            className="w-full object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Tablet */}
+        <div className="hidden md:block lg:hidden w-full">
+          <Image
+            src="/svgs/HeroBgMd.svg"
+            alt="Hero Background"
+            width={1024}
+            height={900}
+            className="w-full object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Desktop */}
+        <div className="hidden lg:block w-full">
+          <Image
+            src="/svgs/HeroBgLg.svg"
+            alt="Hero Background"
+            width={1920}
+            height={1000}
+            className="w-full object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
       </div>
 
-      <div className="relative z-10 w-full bg-transparent self-start">
-        <nav className="w-full px-4 lg:px-[100px] py-4 flex items-center justify-between transition-all duration-200 ease-in-out">
+      {/* FIXED HEADER */}
+      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-green-100/30 ">
+        <nav className="w-full px-4 lg:px-[100px] py-4 flex items-center justify-between">
           <Logo />
+
           <NavlinksDesktop />
+
           <div className="hidden lg:block">
             <Link
               href="/contact"
@@ -48,23 +64,10 @@ const Header = () => {
               Contact Me
             </Link>
           </div>
-          <div className="lg:hidden">
-            <button onClick={handleOpen} className="h-10 w-10">
-              {isMobileMenuOpen ? (
-                <FaTimes className="h-6 w-6" />
-              ) : (
-                <FaBarsStaggered className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-          <NavlinksMobile
-            handleOpen={handleOpen}
-            isMobileMenuOpen={isMobileMenuOpen}
-          />
-        </nav>
-      </div>
-    </header>
-  );
-};
 
-export default Header;
+          <HeaderMobileClient />
+        </nav>
+      </header>
+    </>
+  );
+}

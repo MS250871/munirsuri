@@ -1,48 +1,36 @@
+'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NavlinksDesktop = () => {
   const pathname = usePathname();
+
+  const navClass = (path) => (pathname === path ? 'font-bold' : 'font-normal');
+
   return (
     <div className="hidden lg:flex gap-3 xl:gap-6">
-      <Link
-        className={`${pathname === '/' ? 'font-bold' : 'font-normal'}`}
-        href="/"
-      >
+      <Link href="/" className={navClass('/')}>
         Home
       </Link>
-      <Link
-        className={`${pathname === '/about' ? 'font-bold' : 'font-normal'}`}
-        href="/about"
-      >
+
+      <Link href="/about" className={navClass('/about')}>
         About
       </Link>
-      <Link
-        className={`${
-          pathname === '/experience' ? 'font-bold' : 'font-normal'
-        }`}
-        href="/experience"
-      >
+
+      <Link href="/experience" className={navClass('/experience')}>
         Experience
       </Link>
-      <Link
-        className={`${
-          pathname === '/consulting' ? 'font-bold' : 'font-normal'
-        }`}
-        href="/consulting"
-      >
+
+      <Link href="/consulting" className={navClass('/consulting')}>
         Consulting
       </Link>
-      <Link
-        className={`${pathname === '/skills' ? 'font-bold' : 'font-normal'}`}
-        href="/skills"
-      >
+
+      <Link href="/skills" className={navClass('/skills')}>
         Skills
       </Link>
-      <Link
-        className={`${pathname === '/blog' ? 'font-bold' : 'font-normal'}`}
-        href="/blog"
-      >
+
+      <Link href="/blog" className={navClass('/blog')}>
         Blog
       </Link>
     </div>

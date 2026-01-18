@@ -16,3 +16,29 @@ export async function updateContact(id, status, notes) {
     WHERE id=${id}
   `;
 }
+
+/* get notes */
+export async function getFollowups(contactId) {
+  return await sql`
+    SELECT * FROM contact_followups
+    WHERE contact_id=${contactId}
+    ORDER BY created_at DESC
+  `;
+}
+
+/* add note */
+export async function addFollowup(contactId, note) {
+  await sql`
+    INSERT INTO contact_followups (contact_id, note)
+    VALUES (${contactId}, ${note})
+  `;
+}
+
+/* update status only */
+export async function updateStatus(id, status) {
+  await sql`
+    UPDATE contact_messages
+    SET status=${status}
+    WHERE id=${id}
+  `;
+}

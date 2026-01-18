@@ -2,7 +2,7 @@ import AboutMeContent from '@/components/AboutMeContent';
 import AboutMeText from '@/components/AboutMeText';
 import PageHeader from '@/components/PageHeader';
 
-const About = () => {
+const About = async () => {
   return (
     <div className="">
       <PageHeader

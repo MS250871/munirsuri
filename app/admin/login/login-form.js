@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { adminLogin } from '@/actions/auth.actions';
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 const schema = Yup.object({
   email: Yup.string().email('Invalid email').required('Email required'),
@@ -21,20 +23,24 @@ export default function LoginForm() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const router = useRouter();
 
   const onSubmit = async (data) => {
     const res = await adminLogin(data.email, data.password);
 
     if (res.success) {
-      window.location.href = '/admin';
+      router.push('/admin');
     } else {
-      alert('Invalid credentials');
+      toast.error('Invalid credentials', { duration: 3000 });
     }
   };
 
   return (
-    <div className="bg-white p-8 rounded shadow w-80">
-      <h2 className="font-bold mb-4">Admin Login</h2>
+    <div className="bg-transparent p-8 rounded shadow w-96 max-w-md">
+      <Toaster />
+      <h2 className="font-medium mb-4 text-[#003d3d] text-3xl text-center">
+        Admin Login
+      </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <div>
@@ -63,9 +69,9 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-black text-white w-full p-2 rounded"
+          className="button-bg text-white w-full p-2 rounded"
         >
-          {isSubmitting ? 'Checking...' : 'Login'}
+          {isSubmitting ? 'Logging in...' : 'Login'}
         </button>
       </form>
     </div>

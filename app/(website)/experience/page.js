@@ -6,7 +6,7 @@ const Experience = () => {
       <PageHeader
         href="/experience"
         buttonTitle="Professional Experience"
-        mainTitle="A Legacy in the making"
+        mainTitle="Journey of continuous learning"
       />
       <div>
         <ExperienceDetail />

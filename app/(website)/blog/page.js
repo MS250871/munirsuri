@@ -1,7 +1,9 @@
+import { getBlogs } from '@/actions/blog.actions';
 import BlogCard from '@/components/BlogCard';
 import PageHeader from '@/components/PageHeader';
-import { blogsData } from '@/lib/blogs';
-const Blog = () => {
+
+const Blog = async () => {
+  const blogsData = await getBlogs();
   return (
     <div className="">
       <PageHeader
@@ -20,12 +22,12 @@ const Blog = () => {
             <div key={blog.id}>
               {/* MOBILE – Vertical */}
               <div className="block md:hidden">
-                <BlogCard data={blog} variant="vertical" />
+                <BlogCard data={blog.blog} variant="vertical" />
               </div>
 
               {/* DESKTOP – Horizontal */}
               <div className="hidden md:block">
-                <BlogCard data={blog} variant="horizontal" />
+                <BlogCard data={blog.blog} variant="horizontal" />
               </div>
             </div>
           ))}

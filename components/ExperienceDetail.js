@@ -1,5 +1,6 @@
 import React from 'react';
 import { experienceDetailData } from '@/lib/experienceDetailData';
+import Image from 'next/image';
 
 const ExperienceDetail = () => {
   return (
@@ -7,30 +8,44 @@ const ExperienceDetail = () => {
       {experienceDetailData.map((exp) => (
         <div
           key={exp.id}
-          className=" mt-2.5 xl:mt-[30px] border rounded-[20px] xl:flex xl:items-stretch xl:justify-center"
+          className="mt-2.5 xl:mt-[30px] border rounded-[20px] xl:flex xl:items-stretch xl:justify-center"
         >
+          {/* LEFT BLOCK */}
           <div className="relative w-full h-full p-4 xl:h-auto">
             <div className="absolute inset-0 z-0 rounded-t-[20px] xl:rounded-none xl:rounded-l-[20px] overflow-hidden h-full">
-              <img
-                src={`/images/bgDarkMobile${exp.id}.png`}
-                alt="background pic"
-                className="xl:hidden w-full h-full object-cover"
-              />
-              <img
-                src={`/images/bgDarkDT${exp.id}.png`}
-                alt="background pic"
-                className="hidden xl:block w-full h-full object-cover"
-              />
+              {/* MOBILE */}
+              <div className="relative w-full h-full xl:hidden">
+                <Image
+                  src={`/images/bgDarkMobile${exp.id}.png`}
+                  alt="background pic"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1279px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* DESKTOP */}
+              <div className="relative w-full h-full hidden xl:block">
+                <Image
+                  src={`/images/bgDarkDT${exp.id}.png`}
+                  alt="background pic"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+              </div>
             </div>
+
             <div className="relative z-10 flex flex-col items-start">
               <p
-                className={`text-2xl leading-[36px] font-bold opacity-[23%]`}
+                className="text-2xl leading-[36px] font-bold opacity-[23%]"
                 style={{ color: exp.yclr }}
               >
                 {exp.year}
               </p>
+
               <p
-                className={`mt-5 px-6 py-2 border text-sm uppercase rounded-full`}
+                className="mt-5 px-6 py-2 border text-sm uppercase rounded-full"
                 style={{
                   backgroundColor: exp.btnclr,
                   color: exp.yclr,
@@ -39,28 +54,44 @@ const ExperienceDetail = () => {
               >
                 {exp.company}
               </p>
+
               <p className="mt-2 text-[20px] leading-[24.2px] font-medium text-[rgba(38,38,38,1)]">
                 {exp.title}
               </p>
+
               <p className="mt-2.5 text-sm leading-[27px] text-[rgba(62,62,62,1)]">
                 {exp.description}
               </p>
             </div>
           </div>
+
+          {/* RIGHT BLOCK */}
           <div className="relative w-full h-full p-4 xl:h-auto">
             <div className="absolute inset-0 z-0 rounded-b-[20px] xl:rounded-none xl:rounded-r-[20px] overflow-hidden h-full">
-              <img
-                src={`/images/bgLightMobile${exp.id}.png`}
-                alt="background pic"
-                className="xl:hidden w-full h-full object-cover"
-              />
-              <img
-                src={`/images/bgLightDT${exp.id}.png`}
-                alt="background pic"
-                className="hidden xl:block w-full h-full object-cover"
-              />
+              {/* MOBILE */}
+              <div className="relative w-full h-full xl:hidden">
+                <Image
+                  src={`/images/bgLightMobile${exp.id}.png`}
+                  alt="background pic"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1279px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* DESKTOP */}
+              <div className="relative w-full h-full hidden xl:block">
+                <Image
+                  src={`/images/bgLightDT${exp.id}.png`}
+                  alt="background pic"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+              </div>
             </div>
-            <div className="relaitve z-10">
+
+            <div className="relative z-10">
               <ul className="relative list-disc z-10">
                 {exp.highlights.map((hl, index) => (
                   <li

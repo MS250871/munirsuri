@@ -6,12 +6,11 @@ const AboutMeText = () => {
       </p>
       <div className="xl:w-1/2">
         <p className="mt-[30px] xl:mt-0 text-[18px] leading-[28px] xl:text-[24px] xl:leading-[39px] font-medium tracking-tight text-[rgba(0,31,31,1)]">
-          Welcome to the world of Munir Suri. A journey that spans over three
-          decades, where ideas transformed into innovations, and challenges
-          shaped a leader. With an IIM Kozhikode foundation and a diverse
-          experience across Sales, Retail Strategy, Real Estate, and Turnkey
-          Contracting, I have consistently strived to build businesses that go
-          beyond the ordinary.
+          In my journey that spans over three decades, ideas transformed into
+          innovations, and challenges shaped a leader. With an IIM Kozhikode
+          foundation and a diverse experience across Sales, Retail Strategy,
+          Real Estate, and Turnkey Contracting, I have consistently strived to
+          build businesses that go beyond the ordinary.
         </p>
         <p className="mt-[30px] text-[18px] leading-[28px] xl:text-[24px] xl:leading-[39px] font-medium tracking-tight text-[rgba(0,31,31,0.5)]">
           From retail giants to personalized homes, I’ve had the privilege of

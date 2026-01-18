@@ -1,27 +1,39 @@
 'use client';
 
-import { updateContact } from '@/actions/admin.actions';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { addFollowup, getFollowups } from '@/actions/admin.actions';
 
 export default function ContactsUI({ contacts }) {
   const [list, setList] = useState(contacts);
+  const [notes, setNotes] = useState({});
+  const [newNote, setNewNote] = useState({});
 
-  const save = async (id, status, notes) => {
-    await updateContact(id, status, notes);
+  useEffect(() => {
+    contacts.forEach(async (c) => {
+      const res = await getFollowups(c.id);
+      setNotes((p) => ({ ...p, [c.id]: res }));
+    });
+  }, [contacts]);
 
-    setList((prev) =>
-      prev.map((c) =>
-        c.id === id ? { ...c, status, followup_notes: notes } : c
-      )
-    );
+  const saveNote = async (id) => {
+    if (!newNote[id]) return;
+
+    await addFollowup(id, newNote[id]);
+
+    const res = await getFollowups(id);
+    setNotes((p) => ({ ...p, [id]: res }));
+    setNewNote((p) => ({ ...p, [id]: '' }));
   };
 
   return (
     <>
       {list.map((c) => (
-        <div key={c.id} className="bg-white p-4 mb-4 rounded shadow">
+        <div key={c.id} className="bg-white p-5 mb-5 rounded shadow">
           <p>
             <b>Name:</b> {c.name}
+          </p>
+          <p>
+            <b>Mobile:</b> {c.mobile}
           </p>
           <p>
             <b>Email:</b> {c.email}
@@ -33,29 +45,43 @@ export default function ContactsUI({ contacts }) {
             <b>Message:</b> {c.message}
           </p>
 
-          <select
-            value={c.status}
-            onChange={(e) => save(c.id, e.target.value, c.followup_notes)}
-            className="border p-2 mt-2"
-          >
-            <option>new</option>
-            <option>contacted</option>
-            <option>closed</option>
-          </select>
+          {/* HISTORY */}
+          <div className="mt-4 bg-gray-50 p-3 rounded">
+            <b>Follow-up History</b>
 
+            {notes[c.id]?.length ? (
+              notes[c.id].map((n) => (
+                <div key={n.id} className="border-b py-2 text-sm">
+                  <p>{n.note}</p>
+                  <span className="text-xs text-gray-500">
+                    {new Date(n.created_at).toLocaleString()}
+                  </span>
+                </div>
+              ))
+            ) : (
+              <p className="text-xs text-gray-400">No follow-ups yet</p>
+            )}
+          </div>
+
+          {/* NEW NOTE */}
           <textarea
-            value={c.followup_notes || ''}
-            className="w-full border p-2 mt-2"
-            placeholder="Follow-up notes"
+            className="w-full border p-2 mt-3"
+            placeholder="Add new follow-up note"
+            value={newNote[c.id] || ''}
             onChange={(e) =>
-              setList((prev) =>
-                prev.map((x) =>
-                  x.id === c.id ? { ...x, followup_notes: e.target.value } : x
-                )
-              )
+              setNewNote((p) => ({
+                ...p,
+                [c.id]: e.target.value,
+              }))
             }
-            onBlur={(e) => save(c.id, c.status, e.target.value)}
           />
+
+          <button
+            onClick={() => saveNote(c.id)}
+            className="button-bg text-white px-4 py-2 mt-2 rounded"
+          >
+            Save Note
+          </button>
         </div>
       ))}
     </>

@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 
 const ConsultingPageCard = ({ data }) => {
@@ -44,7 +45,7 @@ const ConsultingPageCard = ({ data }) => {
   };
 
   return (
-    <div className="bg-white xl:bg-[rgba(245,245,245,1)] border border-[rgba(233,233,233,1)] w-full rounded-[20px] shadow-customLight overflow-hidden p-2.5 md:w-[48%] md:h-[480px] xl:h-[268px]">
+    <div className="bg-white xl:bg-[rgba(245,245,245,1)] border border-[rgba(233,233,233,1)] w-full rounded-[20px] shadow-customLight overflow-hidden p-2.5 md:w-[48%] md:h-[480px] xl:h-[296px]">
       <div className=" w-full xl:flex xl:items-start xl:justify-center xl:gap-4">
         <div className="w-full aspect-[2/1] rounded-[16px] overflow-hidden xl:w-2/5 ">
           <Image

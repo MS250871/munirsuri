@@ -18,7 +18,7 @@ const ContactInfo = () => {
           Contact Me
         </p>
         <p className="text-[31px] font-semibold leading-[34px] xl:text-[50px] xl:leading-[60px]">
-          Let's Build Something Together
+          Let&apos;s Build Something Together
         </p>
       </div>
 
@@ -31,7 +31,7 @@ const ContactInfo = () => {
                 Chat with me
               </p>
               <p className="text-xs font-medium xl:text-[18px] xl:leading-[32px]">
-                munir.suri@yahoo.com
+                me@munirsuri.com
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ const ContactInfo = () => {
               </p>
             </div>
           </div>
-          <div className="p-[14px] flex items-center justify-center xl:justify-start gap-6 bg-white border border-[#e9e9e9] rounded-[14px] shadow-customLight md:w-1/2 xl:w-5/12">
+          <div className="p-[14px] flex items-center justify-start xl:justify-start gap-6 bg-white border border-[#e9e9e9] rounded-[14px] shadow-customLight md:w-1/2 xl:w-5/12">
             <a
               href="https://www.linkedin.com/in/munir-suri-29b13661/"
               target="_blank"

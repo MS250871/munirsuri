@@ -21,7 +21,7 @@ const PageHeader = ({
       </div>
       <div>
         <p className="mt-10 text-center uppercase text-[rgba(49,74,74,0.38)] font-medium xl:mt-[290px]">
-          Worked with world's best companies
+          Worked with world&apos;s best companies
         </p>
       </div>
       <div className="mt-8 flex items-center justify-start gap-5 overflow-x-auto no-scrollbar scroll-snap-x opacity-50">

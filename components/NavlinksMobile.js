@@ -1,9 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SocialButtons from './SocialButtons';
 
 const NavlinksMobile = ({ handleOpen, isMobileMenuOpen }) => {
   const pathname = usePathname();
+
+  const handleNavClick = () => {
+    handleOpen(); // close menu
+  };
+
+  const navClass = (path) => (pathname === path ? 'font-bold' : 'font-normal');
+
   return (
     <div
       className={`${
@@ -12,68 +21,63 @@ const NavlinksMobile = ({ handleOpen, isMobileMenuOpen }) => {
     >
       <div className="w-full text-center py-4">
         <Link
-          className={`${
-            pathname === '/' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/"
-          onClick={handleOpen}
+          className={`${navClass('/')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           Home
         </Link>
+
         <Link
-          className={`${
-            pathname === '/about' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/about"
-          onClick={handleOpen}
+          className={`${navClass('/about')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           About
         </Link>
+
         <Link
-          className={`${
-            pathname === '/experience' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/experience"
-          onClick={handleOpen}
+          className={`${navClass('/experience')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           Experience
         </Link>
+
         <Link
-          className={`${
-            pathname === '/consulting' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/consulting"
-          onClick={handleOpen}
+          className={`${navClass('/consulting')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           Consulting
         </Link>
+
         <Link
-          className={`${
-            pathname === '/skills' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/skills"
-          onClick={handleOpen}
+          className={`${navClass('/skills')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           Skills
         </Link>
+
         <Link
-          className={`${
-            pathname === '/blog' ? 'font-bold' : 'font-normal'
-          } block mt-4`}
           href="/blog"
-          onClick={handleOpen}
+          className={`${navClass('/blog')} block mt-4`}
+          onClick={() => handleNavClick()}
         >
           Blog
         </Link>
+
         <div className="mt-16 mb-4">
           <Link
             href="/contact"
             className="px-5 py-4 rounded-full button-bg text-white"
-            onClick={handleOpen}
+            onClick={() => handleNavClick()}
           >
             Contact Me
           </Link>
         </div>
+
         <div className="mt-16">
           <SocialButtons />
         </div>

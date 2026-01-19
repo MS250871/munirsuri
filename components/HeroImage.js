@@ -22,7 +22,7 @@ const HeroImage = () => {
       </div>
       <div className="hidden md:block xl:hidden w-full h-[500px] relative shadow-imageShadow rounded-[26px] bg-[#023573] overflow-hidden">
         <Image
-          src="/images/MS Tab.jpg"
+          src="/images/MS-Tab.jpg"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw"
           alt="Munir Suri"
@@ -39,7 +39,7 @@ const HeroImage = () => {
       </div>
       <div className="hidden xl:block w-full h-[600px] relative shadow-imageShadow rounded-[26px] bg-[#023573] overflow-hidden">
         <Image
-          src="/images/MS Desktop.jpg"
+          src="/images/MS-Desktop.jpg"
           fill
           sizes="(max-width: 1280px) 100vw, 33vw"
           className="object-cover"

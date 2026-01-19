@@ -4,7 +4,7 @@ import Accordion from './Accordion';
 
 const SkillsSection = () => {
   return (
-    <section className="mt-20 xl:mt-[198px] mx-4 p-4 text-center">
+    <section className="mt-20 xl:mt-[198px] mx-4 p-4 text-center overflow-x-hidden">
       <QuickCallButton href="/skills" title="Skills & Expertise" />
 
       <p className="text-3xl xl:text-[56px] xl:leading-[67.2px] xl:max-w-[534px] xl:mx-auto font-medium text-[rgba(0,31,31,1)] mt-4">
@@ -19,92 +19,95 @@ const SkillsSection = () => {
 
       <div className="mt-8">
         {/* ================= MOBILE ================= */}
-        <div className="relative md:hidden flex justify-center">
-          {/* Banner */}
+        <div className="relative md:hidden flex justify-center overflow-hidden">
           <Image
             src="/svgs/SkillsBanner.svg"
             alt="skills banner"
-            width={400}
-            height={400}
+            width={300}
+            height={300}
             sizes="100vw"
-            className="mx-auto"
+            className="mx-auto max-w-full h-auto"
             priority
           />
 
-          {/* Center profile */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-[108px] w-[108px] rounded-full overflow-hidden">
+          {/* INNER IMAGE */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="h-[130px] w-[130px] rounded-full overflow-hidden">
               <Image
-                src="/images/ms-small-square.jpg"
+                src="/images/ms-small.jpg"
                 alt="Munir Suri"
                 fill
-                sizes="108px"
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 130px"
+                className="object-cover rounded-full"
               />
             </div>
           </div>
         </div>
 
         {/* ================= TABLET ================= */}
-        <div className="relative hidden md:flex xl:hidden justify-center">
-          {/* Banner */}
+        <div className="relative hidden md:flex xl:hidden justify-center overflow-hidden">
           <Image
             src="/svgs/SkillsBannerMd.svg"
             alt="skills banner"
             width={600}
             height={600}
-            sizes="(max-width: 1200px) 100vw, 600px"
-            className="mx-auto"
+            sizes="100vw"
+            className="mx-auto max-w-full h-auto"
           />
 
-          {/* Center profile */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-[177px] w-[177px] rounded-full overflow-hidden">
+          <div
+            className="absolute left-1/2 top-1/2 
+                       -translate-x-1/2 -translate-y-1/2 z-10"
+          >
+            <div className="h-[200px] w-[200px] rounded-full overflow-hidden">
               <Image
                 src="/images/ms-small.jpg"
                 alt="Munir Suri"
                 fill
-                sizes="177px"
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 200px"
+                className="object-cover rounded-full"
               />
             </div>
           </div>
         </div>
 
         {/* ================= DESKTOP ================= */}
-        <div className="hidden xl:flex flex-col items-center relative">
+        <div className="hidden xl:flex justify-center">
           <div className="relative w-[700px] h-[700px]">
-            {/* Banner */}
             <Image
               src="/svgs/SkillsBannerLg.svg"
               alt="skills banner"
               fill
-              sizes="700px"
-              className="object-contain"
+              sizes="(max-width: 1280px) 100vw, 700px"
+              className="object-contain z-0"
+              priority
             />
 
-            {/* Center profile */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-[286px] w-[286px] rounded-full overflow-hidden">
+            {/* CENTER IMAGE */}
+            <div
+              className="absolute left-1/2 top-1/2 
+                         -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <div className="h-[294px] w-[294px] rounded-full overflow-hidden">
                 <Image
                   src="/images/ms-small.jpg"
                   alt="Munir Suri"
                   fill
-                  sizes="286px"
-                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 294px"
+                  className="object-cover rounded-full"
                 />
               </div>
             </div>
-          </div>
 
-          {/* Desktop accordion overlay */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Accordion />
+            {/* Accordion */}
+            <div className="absolute inset-0 z-20">
+              <Accordion overlay containerSize={700} />
+            </div>
           </div>
         </div>
 
-        {/* ================= Accordion for Mobile/Tablet ================= */}
-        <div className="xl:hidden mt-6">
+        {/* MOBILE + TABLET ACCORDION */}
+        <div className="xl:hidden mt-6 overflow-x-hidden">
           <Accordion />
         </div>
       </div>

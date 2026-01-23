@@ -2,6 +2,43 @@ import PageHeader from '@/components/PageHeader';
 import { skillsDetailData } from '@/lib/skillsDetailData';
 import Image from 'next/image';
 
+export const metadata = {
+  title: 'Leadership & Business Skills | Munir Suri',
+  description:
+    'Explore Munir Suri’s core leadership skills including business development, sales leadership, digital transformation, retail strategy and entrepreneurship.',
+
+  keywords: [
+    'Leadership Skills',
+    'Business Development',
+    'Sales Leadership',
+    'Digital Transformation',
+    'Retail Strategy',
+    'Entrepreneurship',
+    'Turnkey Projects',
+  ],
+
+  openGraph: {
+    title: 'Leadership & Business Skills | Munir Suri',
+    description:
+      'Strategic leadership, revenue growth, digital transformation and cross-functional team leadership expertise.',
+    url: 'https://munirsuri.com/skills',
+    siteName: 'Munir Suri',
+    images: [
+      {
+        url: 'https://munirsuri.com/og-skills.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Munir Suri Skills & Expertise',
+      },
+    ],
+    type: 'website',
+  },
+
+  alternates: {
+    canonical: 'https://munirsuri.com/skills',
+  },
+};
+
 const Skills = () => {
   return (
     <div className="">

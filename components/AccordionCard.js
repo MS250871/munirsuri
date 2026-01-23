@@ -5,6 +5,7 @@ import {
   IoIosArrowDropdownCircle,
   IoIosArrowDropupCircle,
 } from 'react-icons/io';
+import Link from 'next/link';
 
 const AccordionCard = ({
   cardData,
@@ -29,7 +30,7 @@ const AccordionCard = ({
   const styleAbsolute = {};
 
   if (overlay && isXl) {
-    const radius = 320; // OUTSIDE light-blue ring
+    const radius = 320;
     const cx = containerSize / 2;
     const cy = containerSize / 2;
 
@@ -49,9 +50,10 @@ const AccordionCard = ({
   return (
     <div
       style={styleAbsolute}
-      className="flex flex-col gap-3 bg-white rounded-lg px-3 pt-4 
+      onClick={() => ToggleOpen(id)} // 👈 Whole card clickable
+      className="cursor-pointer flex flex-col items-start gap-3 bg-white rounded-lg px-3 pt-4 
                  border border-gray-200 shadow-accordionShadow
-                 w-[300px]"
+                 xl:w-[300px]"
     >
       <div className="w-full flex items-start justify-between">
         <div>{img}</div>
@@ -60,7 +62,13 @@ const AccordionCard = ({
           {title}
         </p>
 
-        <button onClick={() => ToggleOpen(id)} className="text-gray-300 w-8">
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // 👈 prevent card click
+            ToggleOpen(id);
+          }}
+          className="text-gray-300 w-8"
+        >
           {openPanel === id ? (
             <IoIosArrowDropupCircle size={24} />
           ) : (
@@ -76,13 +84,16 @@ const AccordionCard = ({
           ${openPanel === id ? 'max-h-[500px]' : 'max-h-0'}`}
       >
         {description}
-        <a
+        <br />
+
+        <Link
           href="/skills"
-          className="block my-4 px-4 py-2 rounded-full 
+          onClick={(e) => e.stopPropagation()} // 👈 prevents toggle when clicking link
+          className="inline-block my-4 px-4 py-2 rounded-full w-fit
                      button-bg text-white text-xs font-medium"
         >
           View In Detail
-        </a>
+        </Link>
       </div>
     </div>
   );

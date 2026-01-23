@@ -24,7 +24,7 @@ const Logo = ({ isLight }) => {
               isLight ? 'text-white' : 'text-[#003d3d]'
             } text-[10px] lg:text-sm font-normal opacity-80 `}
           >
-            Value Realization Leader
+            Growth Strategist
           </p>
         </div>
       </div>

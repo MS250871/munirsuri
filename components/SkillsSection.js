@@ -8,7 +8,7 @@ const SkillsSection = () => {
       <QuickCallButton href="/skills" title="Skills & Expertise" />
 
       <p className="text-3xl xl:text-[56px] xl:leading-[67.2px] xl:max-w-[534px] xl:mx-auto font-medium text-[rgba(0,31,31,1)] mt-4">
-        The Architect of Strategic Growth
+        Skills Built Over Time
       </p>
 
       <p className="text-sm xl:text-base xl:max-w-[534px] xl:mx-auto font-medium text-[rgba(0,31,31,0.8)] mt-4">

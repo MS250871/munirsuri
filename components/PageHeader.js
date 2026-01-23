@@ -13,11 +13,11 @@ const PageHeader = ({
     <div className="mx-4 mt-[65px] flex flex-col items-center ">
       <QuickCallButton href={href} title={buttonTitle} />
       <div>
-        <p className="text-[44px] leading-[52.8px] md:max-w-[800px] xl:text-[100px] xl:leading-[120px]  font-medium text-center capitalize mt-4 text-[rgba(0,31,31,1)]">
+        <h1 className="text-[44px] leading-[52.8px] md:max-w-[800px] xl:text-[100px] xl:leading-[120px]  font-medium text-center capitalize mt-4 text-[rgba(0,31,31,1)]">
           {mainTitle}{' '}
           <span className="font-covered text-green-500">{highlightedText}</span>{' '}
           {restOfTheText}
-        </p>
+        </h1>
       </div>
       <div>
         <p className="mt-10 text-center uppercase text-[rgba(49,74,74,0.38)] font-medium xl:mt-[290px]">

@@ -32,7 +32,7 @@ export default function BlogSectionClient({ blogs }) {
         </Link>
       </div>
 
-      <div className="flex flex-col justify-center gap-4 md:flex-row mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
         {blogs.slice(0, itemsToShow).map((blog) => (
           <BlogCard key={blog.id} data={blog.blog} />
         ))}

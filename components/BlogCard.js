@@ -70,8 +70,13 @@ const BlogCard = ({ data, variant = 'vertical' }) => {
   // VERTICAL CARD
   // =======================
   return (
-    <Link href={`/blog/${id}`} className="w-full md:w-1/3 xl:w-1/4">
-      <div className="w-full p-3 bg-white shadow-customLight flex flex-col gap-3 rounded-2xl border border-[rgba(233,233,233,1)] hover:shadow-lg transition">
+    <Link href={`/blog/${id}`} className="h-full w-full">
+      <div
+        className="h-full p-3 bg-white shadow-customLight 
+                    flex flex-col gap-3 rounded-2xl 
+                    border border-[rgba(233,233,233,1)] 
+                    hover:shadow-lg transition"
+      >
         {/* IMAGE */}
         <div className="relative w-full aspect-video">
           <Image
@@ -93,16 +98,22 @@ const BlogCard = ({ data, variant = 'vertical' }) => {
         </div>
 
         {/* TITLE */}
-        <p className="text-lg leading-snug font-medium text-[rgba(29,31,30,1)] line-clamp-2">
+        <p
+          className="text-lg leading-snug font-medium 
+                    text-[rgba(29,31,30,1)] line-clamp-2"
+        >
           {title}
         </p>
 
         {/* SUBTITLE */}
-        <p className="text-sm font-normal line-clamp-3 text-[rgba(29,31,29,0.7)]">
+        <p
+          className="text-sm font-normal 
+                    line-clamp-3 text-[rgba(29,31,29,0.7)]"
+        >
           {subTitle}
         </p>
 
-        {/* AUTHOR */}
+        {/* AUTHOR pinned bottom */}
         <div className="text-sm text-gray-600 mt-auto">
           By <span className="font-medium">{author}</span>
         </div>

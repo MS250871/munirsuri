@@ -1,6 +1,43 @@
 import ConsultingPageCard from '@/components/ConsultingPageCard';
 import { consultingData } from '@/lib/consultingData';
 import PageHeader from '@/components/PageHeader';
+
+export const metadata = {
+  title: 'Management Consulting Case Studies | Munir Suri',
+  description:
+    'Consulting projects by Munir Suri across retail, supply chain, digital transformation and market entry for brands like Walmart, Reliance, Apollo Pharmacy and Sainsbury.',
+
+  keywords: [
+    'Management Consulting',
+    'Retail Consulting',
+    'Market Entry Strategy',
+    'Supply Chain Optimization',
+    'Business Expansion',
+    'Strategy Consultant',
+  ],
+
+  openGraph: {
+    title: 'Consulting Case Studies | Munir Suri',
+    description:
+      'Real-world consulting projects across retail expansion, market entry and digital transformation.',
+    url: 'https://munirsuri.com/consulting',
+    siteName: 'Munir Suri',
+    images: [
+      {
+        url: 'https://munirsuri.com/og-consulting.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Consulting Case Studies',
+      },
+    ],
+    type: 'website',
+  },
+
+  alternates: {
+    canonical: 'https://munirsuri.com/consulting',
+  },
+};
+
 const Consulting = () => {
   return (
     <div className=" ">

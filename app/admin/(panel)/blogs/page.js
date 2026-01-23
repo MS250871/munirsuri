@@ -28,7 +28,7 @@ export default async function BlogsPage() {
       {blogs.map((b) => (
         <div
           key={b.id}
-          className="bg-white p-5 mb-4 rounded shadow flex items-start justify-between"
+          className="bg-white p-5 mb-4 rounded shadow flex flex-col md:flex-row items-start justify-between"
         >
           <div className="flex flex-col">
             <h3 className="font-semibold text-lg">{b.blog.meta.title}</h3>
@@ -51,7 +51,7 @@ export default async function BlogsPage() {
           </div>
 
           {/* ACTIONS */}
-          <div className="flex gap-3 mt-4">
+          <div className="flex gap-3 mt-4 text-gray-500">
             <Link href={`/admin/blogs/${b.id}`} className="btn-icon">
               <MdVisibility size={20} />
             </Link>

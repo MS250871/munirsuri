@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ConsultingPageCard = ({ data }) => {
   const {
@@ -87,12 +88,12 @@ const ConsultingPageCard = ({ data }) => {
         <p className="mt-4 text-sm text-[rgba(0,31,31,0.7)]">
           {smallDescription}
         </p>
-        <a
+        <Link
           href={`/consulting/${id}`}
           className="block my-4 px-4 py-2 xl:mb-0 rounded-full w-auto button-bg text-white text-xs xl:text-sm font-medium"
         >
           View In Detail
-        </a>
+        </Link>
       </div>
     </div>
   );

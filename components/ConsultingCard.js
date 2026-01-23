@@ -57,7 +57,7 @@ const ConsultingCard = ({ data, open, toggleOpen }) => {
               {mediumDescription}
             </p>
             <div className="flex">
-              <Link href="/consulting">
+              <Link href={`/consulting/${id}`}>
                 <div className="flex items-center justify-center mt-2.5  px-5 py-[9px] rounded-full bg-white text-[rgba(38,38,38,1)] shadow-custom text-sm xl:text-[18px] font-semibold">
                   View More
                 </div>

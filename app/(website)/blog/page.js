@@ -2,6 +2,43 @@ import { getBlogs } from '@/actions/blog.actions';
 import BlogCard from '@/components/BlogCard';
 import PageHeader from '@/components/PageHeader';
 
+export const metadata = {
+  title: 'Blog | AI, Marketing, Retail & Data Centers | Munir Suri',
+  description:
+    'Read expert insights on AI marketing, omnichannel retail, Gen Z behavior, and AI data centers by Munir Suri. Strategy, technology and future trends.',
+
+  keywords: [
+    'AI Marketing Blog',
+    'Retail Transformation',
+    'Gen Z Marketing',
+    'Omnichannel Commerce',
+    'AI Data Centers',
+    'Business Strategy',
+    'Digital Transformation',
+  ],
+
+  openGraph: {
+    title: 'Munir Suri Blog | AI & Business Insights',
+    description:
+      'Deep dives into AI, marketing, retail transformation and digital infrastructure.',
+    url: 'https://munirsuri.com/blog',
+    siteName: 'Munir Suri',
+    images: [
+      {
+        url: 'https://munirsuri.com/og-blog.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Munir Suri Blog',
+      },
+    ],
+    type: 'website',
+  },
+
+  alternates: {
+    canonical: 'https://munirsuri.com/blog',
+  },
+};
+
 const Blog = async () => {
   const blogsData = await getBlogs();
   return (
